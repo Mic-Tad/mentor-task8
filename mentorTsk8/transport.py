@@ -7,8 +7,8 @@ NumOfWheels = typing.NewType('NumOfWheels', int)
 
 @attr.s
 class Transport:
-    id = attr.ib(default=TransportID("id0000"), kw_only=True)
-    num_of_wheels = attr.ib(factory=NumOfWheels)
+    id: TransportID = attr.ib(default=TransportID("id0000"), kw_only=True)
+    num_of_wheels: NumOfWheels = attr.ib(default=NumOfWheels(4))
 
 
 if __name__ == '__main__':

@@ -15,12 +15,12 @@ PassCapacity = typing.NewType('PassCapacity', int)
 
 @attr.s
 class WarPlane(Plane):
-    max_speed = attr.ib(factory=MaxSpeed)
+    max_speed: MaxSpeed = attr.ib(default=MaxSpeed(2000.0))
 
 
 @attr.s
 class Airliner(Plane):
-    pass_capacity = attr.ib(factory=PassCapacity)
+    pass_capacity: PassCapacity = attr.ib(default=PassCapacity(300))
 
 
 if __name__ == '__main__':
