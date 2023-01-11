@@ -1,26 +1,30 @@
 import typing
-import attrs
-from attrs import define,field
+import attr
+
 from transport import Transport
 
-@define
+
+@attr.s
 class Plane(Transport):
     pass
 
-MaxSpeed = typing.NewType('MaxSpeed',float)
-PassCapacity = typing.NewType('PassCapacity',int)
 
-@define
+MaxSpeed = typing.NewType('MaxSpeed', float)
+PassCapacity = typing.NewType('PassCapacity', int)
+
+
+@attr.s
 class WarPlane(Plane):
-    max_speed = field(factory=MaxSpeed)
+    max_speed = attr.ib(factory=MaxSpeed)
 
-@define
+
+@attr.s
 class Airliner(Plane):
-    pass_capacity = field(factory=PassCapacity)
+    pass_capacity = attr.ib(factory=PassCapacity)
 
 
 if __name__ == '__main__':
-    wp1=WarPlane(3, 1600, id = 'id2000')
-    a1=Airliner(3, 200)
+    wp1 = WarPlane(3, 1600, id='id2000')
+    a1 = Airliner(3, 200)
     print(a1)
     print(wp1)

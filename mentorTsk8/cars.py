@@ -1,7 +1,7 @@
 import typing
-import attrs
+import attr
 from enum import Enum
-from attrs import define,field
+
 from transport import Transport
 
 class TypeOfCar (Enum):
@@ -11,10 +11,10 @@ class TypeOfCar (Enum):
 CarType = typing.NewType('CarType', str)
 Weight = typing.NewType('Weight', float)
 
-@define
+@attr.s
 class Cars (Transport):
-    type = field(factory = CarType)
-    car_capacity = field(default=Weight(2000.0), kw_only = True)
+    type = attr.ib(factory = CarType)
+    car_capacity = attr.ib(default=Weight(2000.0), kw_only = True)
 
 if __name__ == '__main__':
     c1 = Cars(4, TypeOfCar.passenger_car.name)
